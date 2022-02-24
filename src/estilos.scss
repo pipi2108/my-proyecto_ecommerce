@@ -1,0 +1,22 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#my-header{
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    h2 {
+        text-decoration: underline;
+    }
+    a {
+        color: black;
+        text-decoration: none;
+        margin-left: 1rem;
+    }
+}   
