@@ -1,3 +1,5 @@
+import Carrito from "./CartWidget"
+
 function NavBar() {
     return (
         <header id="my-header">
@@ -9,6 +11,9 @@ function NavBar() {
                 <a href="#"> Productos </a>
                 <a href="#"> Ofertas </a>
                 <a href="#"> Contacto </a>
+            </div>
+            <div id='shop-basket'>
+                <Carrito/>
             </div>
         </header>
         )
