@@ -7,6 +7,7 @@
 #root{
     display: flex;
     flex-direction: column;
+    height: 100vh;
 }
 
 #my-header{
@@ -33,11 +34,48 @@
 }
 
 main {
+    flex-grow: 1;
+    
+}
+
+#sec-principal {
     h2 {
         text-align: center;
         padding-top: 30px;
     }
     p{
         text-align: center;
+        padding: 10px;
+    }
+}
+
+#contador {
+    
+    border-radius: 20px;
+    width: 20%;
+    padding: 10px 0px;
+    margin: 0px 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#contador .prod{
+    text-align: center;
+    p {
+        font-size: 10px;
+    }
+}
+
+#contador .count{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5px;
+}
+
+.btn-card{
+    text-align: center;
+    padding-top: 5px;
+    .boton{
+        border-radius: 10px;
+        border: 1px solid black;
     }
 }
