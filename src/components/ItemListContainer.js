@@ -8,21 +8,21 @@ const miOnAdd = () => {
 let productosIniciales = [
     {
         id: 1 ,
-        producto: "jean",
+        producto: "Jean",
         precio: 2500,
         descripcion: "Jean para niño, estilo chupin, con rodillas desgastadas."
 
     },
     {
         id: 2,
-        producto: "sweatter",
+        producto: "Sweatter",
         precio:3500,
         descripcion:"Sweatter para niño, de lana, con puños bordados"
 
     },
     {
         id: 3,
-        producto: "remera",
+        producto: "Remera",
         precio: 1500,
         descripcion: "remera para niño, mangas cortas y largas"
 
@@ -69,7 +69,7 @@ const ItemListContainer = (props) =>{
             <div>
                 <div>
                     <p>{loading ? "Cargando..." : "los productos se cargaron correctamente"}</p>
-                    <ItemList items={productos}/>
+                    {!loading && <ItemList items={productos}/>}
                 </div>
                 <ItemCount inicial={0} stock={5} onAdd={miOnAdd}/>
             </div>

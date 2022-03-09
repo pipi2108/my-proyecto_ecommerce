@@ -1,14 +1,13 @@
 import Item from "./Item"
 
-const ItemList = (items) => {
+const ItemList = ({items}) => {
     return (
-        <>
-        <ul>
+        <div className="productos">
             {items.map((producto, indice)=>{
-                return <li>{<Item {...producto}/>}</li>
+                return <Item key={indice} {...producto}/>
             })}
-        </ul>
-    </>
+        </div>
+    
     )   
 }
 
