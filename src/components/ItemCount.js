@@ -18,11 +18,6 @@ const ItemCount = (props)=> {
     }
     return (
         <div id="contador">
-            <div className="prod">
-                <h4>Producto 1</h4>
-                <p>Descripcion del producto</p>
-                <p>$500</p>
-            </div>
             <div className="count">
                 <button onClick={restar}> - </button>
                 <p>{contador.toString()}</p>
