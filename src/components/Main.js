@@ -1,12 +1,22 @@
 import ItemListContainer from "./ItemListContainer"
-
+import { Route, Routes } from "react-router-dom";
+import ItemDetailContainer from "./ItemDetailContainer";
 
 function Main() {
     return (
-        <>
-        <ItemListContainer nombre="Caprichitos" año="2018" />
-        </>
+        <main>
+            <Routes>
+                <Route path="/:id" element={<ItemListContainer nombre="Caprichitos" año="2018" />}/>
+                <Route path="/products/:id" element={<ItemDetailContainer/>}/>
+                
+            </Routes>
+        </main>
         )
-}
-
-export default Main
+        
+    }
+    
+    export default Main
+    
+    // <>
+    // 
+    // </>

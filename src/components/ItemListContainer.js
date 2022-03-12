@@ -1,63 +1,35 @@
 import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
 import ItemCount from "./ItemCount"
 import ItemList from "./ItemList"
 
 const miOnAdd = () => {
     console.log ("Agregado a carrito")
 }
-let productosIniciales = [
-    {
-        id: 1 ,
-        producto: "Jean",
-        precio: 2500,
-        descripcion: "Jean para niño, estilo chupin, con rodillas desgastadas."
-
-    },
-    {
-        id: 2,
-        producto: "Sweatter",
-        precio:3500,
-        descripcion:"Sweatter para niño, de lana, con puños bordados"
-
-    },
-    {
-        id: 3,
-        producto: "Remera",
-        precio: 1500,
-        descripcion: "remera para niño, mangas cortas y largas"
-
-    },
-    {
-        id: 4,
-        producto: "Vestido",
-        precio:4500,
-        descripcion: "Vestido para niña, largo de todo tipo de colores."
-
-    }]
 
 const ItemListContainer = (props) =>{
     const [loading, setLoading] = useState(true)
     const [productos, setProductos] = useState([])
+    const {id} = useParams()
 
     useEffect(()=>{
- 
-        const promesa = new Promise((res,rej)=>{
-            setTimeout(()=>{
-                res(productosIniciales)
-            },2000)
-        })
-        promesa
-        .then(()=>{
-            setProductos(productosIniciales)
-        })
-        .catch(()=>{
-            console.log("ERROR AL QUERER CARGAR PRODUCTOS")
-        })
-        .finally(()=>{
-            setLoading(false)
-        })
+        const pedido = fetch("https://www.mockachino.com/d75ae74f-ab5f-4b/products")
         
-    })
+        pedido
+            .then((respuestaDeLaApi) => {
+                return respuestaDeLaApi.json()
+            })
+
+            .then((datos)=>{
+                setProductos(datos.products)
+            })
+            .catch((errorDeMiApi)=>{
+                console.log("ERROR AL QUERER CARGAR PRODUCTOS")
+            })
+            .finally(()=>{
+                setLoading(false)
+        })   
+    },[id])
 
     return (
         <>
@@ -69,7 +41,7 @@ const ItemListContainer = (props) =>{
             <div>
                 <div>
                     <p>{loading ? "Cargando..." : "los productos se cargaron correctamente"}</p>
-                    {!loading && <ItemList items={productos}/>}
+                    <ItemList items={productos}/>
                 </div>
                 <ItemCount inicial={0} stock={5} onAdd={miOnAdd}/>
             </div>

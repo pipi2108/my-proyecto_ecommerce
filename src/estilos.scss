@@ -80,13 +80,22 @@ main {
     }
 }
 .productos{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 50px;
+    margin-top: 20px;
+    .item {
+        border: 1px solid black;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        padding: 15px;
+        flex: 1;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
 }
 
-.item {
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 15px;
-    flex: 1;
-}
