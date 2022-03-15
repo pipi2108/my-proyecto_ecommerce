@@ -10,7 +10,6 @@ const ItemCount = (props)=> {
             console.log("No hay stock")
         }
      }
-
     const restar =()=> {
         if(contador > 0 ){
             setContador(contador - 1)

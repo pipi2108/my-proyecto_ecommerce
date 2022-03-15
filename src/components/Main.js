@@ -6,7 +6,7 @@ function Main() {
     return (
         <main>
             <Routes>
-                <Route path="/:id" element={<ItemListContainer nombre="Caprichitos" año="2018" />}/>
+                <Route path="/products" element={<ItemListContainer nombre="Caprichitos" año="2018" />}/>
                 <Route path="/products/:id" element={<ItemDetailContainer/>}/>
                 
             </Routes>

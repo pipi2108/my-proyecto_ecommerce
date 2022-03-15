@@ -10,17 +10,17 @@ const ItemDetailContainer = () => {
     useEffect(() => {
       setTimeout(()=>{
         const pedido = fetch(`https://www.mockachino.com/d75ae74f-ab5f-4b/products/${id}`)
-    
+        
         pedido
-          .then(({respuesta}) => {
-            // return respuesta.json()
-            console.log(respuesta.json())
+          .then((respuesta) => {
+              return respuesta.json()
+            
           })
           .then((producto) => {
-            // setItem(producto)
+            setItem(producto)
           })
-          .catch(() => {
-            console.log("Hubo un error!")
+          .catch((error) => {
+            console.log(error)
           })
           .finally(() => {
             setLoading(false)
@@ -32,10 +32,19 @@ const ItemDetailContainer = () => {
     return (
         <div id="detalle">
             <p>{loading ? "Cargando..." : "los productos se cargaron correctamente"}</p>
-          <h2>
-              {item.producto}
-    
-          </h2>
+            <div className="detallesProductos">
+              <h2>
+                  {item.product}
+              </h2>
+              <div className="productosDetalles">
+                <img src={item.src} alt="" />
+                <div>
+                    <p>Precio: ${item.precio}</p>
+                    <p>{item.marca}</p>
+                </div>
+              </div>
+            </div>
+
         </div>
     )
     
