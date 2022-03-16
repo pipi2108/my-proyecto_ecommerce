@@ -33,18 +33,18 @@ const ItemDetailContainer = () => {
         <div id="detalle">
             <p>{loading ? "Cargando..." : "los productos se cargaron correctamente"}</p>
             <div className="detallesProductos">
-              <h2>
-                  {item.product}
-              </h2>
               <div className="productosDetalles">
                 <img src={item.src} alt="" />
                 <div>
+                    <h3> 
+                      {item.product}
+                    </h3>
                     <p>Precio: ${item.precio}</p>
-                    <p>{item.marca}</p>
+                    <p>Marca: {item.marca}</p>
+                    <p>{item.genero}</p>
                 </div>
               </div>
             </div>
-
         </div>
     )
     

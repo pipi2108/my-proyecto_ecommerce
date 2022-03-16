@@ -9,9 +9,9 @@ function NavBar() {
             </div>
             <div>
                 <NavLink to="/products">PRODUCTOS</NavLink>
-                <NavLink to="/">NENE</NavLink>
-                <NavLink to="/">NENA</NavLink>
-                <NavLink to="/">BEBÉ</NavLink>
+                <NavLink to="/products">NENE</NavLink>
+                <NavLink to="/products">NENA</NavLink>
+                <NavLink to="/products">BEBÉ</NavLink>
                 
             </div>
             <div id='shop-basket'>
