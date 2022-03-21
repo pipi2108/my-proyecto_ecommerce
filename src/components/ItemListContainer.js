@@ -6,7 +6,7 @@ import ItemList from "./ItemList"
 const ItemListContainer = (props) =>{
     const [loading, setLoading] = useState(true)
     const [productos, setProductos] = useState([])
-    const {genero} = useParams()
+    const {id} = useParams()
     
     useEffect(()=>{
         const pedido = fetch("https://www.mockachino.com/d75ae74f-ab5f-4b/products")
@@ -16,8 +16,8 @@ const ItemListContainer = (props) =>{
                 return respuestaDeLaApi.json()
             })
             .then((datos)=>{
-                if(genero){
-                    setProductos(datos.products.filter(p => p.genero === genero) )
+                if(id){
+                    setProductos(datos.products.filter(p => p.genero === id) )
                 }else{
                     setProductos(datos.products)
                 }
@@ -28,7 +28,7 @@ const ItemListContainer = (props) =>{
             .finally(()=>{
                 setLoading(false)
         })   
-    })
+    }, [id])
 
     return (
         <>

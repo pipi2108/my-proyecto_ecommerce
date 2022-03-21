@@ -6,9 +6,10 @@ function Main() {
     return (
         <main>
             <Routes>
+                <Route path="/" element={<ItemListContainer nombre="Caprichitos" año="2018" />}/>
                 <Route path="/products" element={<ItemListContainer nombre="Caprichitos" año="2018" />}/>
-                
-                <Route path="/products/:id" element={<ItemDetailContainer/>}/>
+                <Route path="/products/:id" element={<ItemListContainer nombre="Caprichitos" año="2018" />}/>
+                <Route path="/product/:id" element={<ItemDetailContainer/>}/>
             </Routes>
         </main>
         )

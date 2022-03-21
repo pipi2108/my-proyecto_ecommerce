@@ -31,7 +31,7 @@ const ItemDetailContainer = () => {
     }, [id])
     
     const onAdd = (agregarCarrito) => {
-      if (agregarCarrito != undefined) {
+      if (agregarCarrito !== undefined) {
         setAgregado(agregarCarrito)
       } 
 
@@ -42,14 +42,14 @@ const ItemDetailContainer = () => {
             <div className="detallesProductos">
               <div className="productosDetalles">
                 <img src={item.src} alt="" />
-                <div>
+                <div className="descripcionProducto">
                     <h3> 
                       {item.product}
                     </h3>
                     <p>Precio: ${item.precio}</p>
                     <p>Marca: {item.marca}</p>
                     <p>{item.genero}</p>
-                    <p>{item.stock}</p>
+                    <p>Stock: {item.stock}</p>
                     <ItemCount stock={item.stock} inicial={1} onAdd={onAdd} />
                     <p>{agregado ? "Se agregaron los productos al carrito" : "Seleccione la cantidad para seguir!"}</p>
                 </div>

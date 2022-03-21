@@ -95,7 +95,7 @@ main {
                 padding: 15px;
                 margin-left: 70px;
             }
-            div {
+            .descripcionProducto {
                 border-left: 5px solid black;
                 padding: 50px;
                 h3{
@@ -103,6 +103,15 @@ main {
                 }
                 p {
                     font-size: 30px;
+                }
+                .count {
+                    display: grid;
+                    grid-template-columns: repeat(3, 20px);
+                    grid-gap: 10px;
+                    text-align: center;
+                    padding-left: 130px;
+                    padding-top: 20px;
+                    padding-bottom: 10px;
                 }
             }
         }
