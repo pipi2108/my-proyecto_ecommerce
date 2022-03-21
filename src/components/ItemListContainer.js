@@ -1,17 +1,13 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import ItemCount from "./ItemCount"
 import ItemList from "./ItemList"
 
-const miOnAdd = () => {
-    console.log ("Agregado a carrito")
-}
 
 const ItemListContainer = (props) =>{
     const [loading, setLoading] = useState(true)
     const [productos, setProductos] = useState([])
-    const {id} = useParams()
-
+    const {genero} = useParams()
+    
     useEffect(()=>{
         const pedido = fetch("https://www.mockachino.com/d75ae74f-ab5f-4b/products")
         
@@ -19,9 +15,12 @@ const ItemListContainer = (props) =>{
             .then((respuestaDeLaApi) => {
                 return respuestaDeLaApi.json()
             })
-
             .then((datos)=>{
-                setProductos(datos.products)
+                if(genero){
+                    setProductos(datos.products.filter(p => p.genero === genero) )
+                }else{
+                    setProductos(datos.products)
+                }
             })
             .catch((errorDeMiApi)=>{
                 console.log("ERROR AL QUERER CARGAR PRODUCTOS")
@@ -29,7 +28,7 @@ const ItemListContainer = (props) =>{
             .finally(()=>{
                 setLoading(false)
         })   
-    },[id])
+    })
 
     return (
         <>
@@ -43,7 +42,6 @@ const ItemListContainer = (props) =>{
                     <p>{loading ? "Cargando..." : "los productos se cargaron correctamente"}</p>
                     <ItemList items={productos}/>
                 </div>
-                <ItemCount inicial={0} stock={5} onAdd={miOnAdd}/>
             </div>
         </>    
     )
