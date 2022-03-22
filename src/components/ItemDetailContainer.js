@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import ItemCount from "./ItemCount"
 
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState({})
     const [loading, setLoading] = useState(true)
-    const [agregado, setAgregado] = useState(false)
+    const [counter, setCounter] = useState(null);
     const { id } = useParams()
   
     useEffect(() => {
@@ -30,11 +31,8 @@ const ItemDetailContainer = () => {
       },2000)
     }, [id])
     
-    const onAdd = (agregarCarrito) => {
-      if (agregarCarrito !== undefined) {
-        setAgregado(agregarCarrito)
-      } 
-
+    const onAdd = (count) => {
+      setCounter (count)
     }
     return (
         <div id="detalle">
@@ -50,8 +48,8 @@ const ItemDetailContainer = () => {
                     <p>Marca: {item.marca}</p>
                     <p>{item.genero}</p>
                     <p>Stock: {item.stock}</p>
-                    <ItemCount stock={item.stock} inicial={1} onAdd={onAdd} />
-                    <p>{agregado ? "Se agregaron los productos al carrito" : "Seleccione la cantidad para seguir!"}</p>
+                    {counter ? <button> <Link to={`/cart`}>Ir a carrito</Link> </button> 
+                      : <ItemCount stock={item.stock} inicial={1} onAdd={onAdd}/>}
                 </div>
               </div>
             </div>
