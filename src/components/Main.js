@@ -1,6 +1,7 @@
 import ItemListContainer from "./ItemListContainer"
 import { Route, Routes } from "react-router-dom";
 import ItemDetailContainer from "./ItemDetailContainer";
+import Carrito from "./CartWidget"
 
 function Main() {
     return (
@@ -10,6 +11,7 @@ function Main() {
                 <Route path="/products" element={<ItemListContainer nombre="Caprichitos" año="2018" />}/>
                 <Route path="/products/:id" element={<ItemListContainer nombre="Caprichitos" año="2018" />}/>
                 <Route path="/product/:id" element={<ItemDetailContainer/>}/>
+                <Route path="/carrito" element={<Carrito/>}/>
             </Routes>
         </main>
         )

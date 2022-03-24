@@ -1,9 +1,14 @@
-import { FaShoppingBasket } from 'react-icons/fa';
+import { useContext } from "react"
+import {Context} from './CartContext'
 
 function Carrito() {
+    const resultado = useContext(Context)
+    const carrito = resultado.carrito
+    console.log(carrito)
+    
     return(
-        <div>
-            <FaShoppingBasket/>
+        <div>   
+            <p>MI CARRITO</p>    
         </div>
     )
 }
