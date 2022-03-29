@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+
 
 export const Context = createContext()
 
@@ -6,27 +7,26 @@ const {Provider} = Context
 
 const MiProvider = ({children}) =>{
     const [carrito, setCarrito] = useState([])
+    const [total, setTotal] = useState(0)
+
+    useEffect (() => {
+        setTotal(totalCarrito())
+    },[carrito])
 
     const addItem = (item, count) => {
-        let carritoProductos = {item, count}
-        let carritoSecundario = []
         if(isInCart(item)) {
-            carritoProductos = carrito.find(p => p.item.id === item.id)
-            carritoProductos.count += count
-            carritoSecundario = [carrito]
+            setCarrito(carrito.map(p => p.item.id === item.id ? {...p, count : p.count + count} : p ) )
         }else{
-            carritoSecundario = [carritoProductos, carrito]
+            setCarrito((prevCarrito) => ([...prevCarrito, {item, count}]))
         }
-        setCarrito([carritoSecundario])
+        
     }
-    const isInCart = (item) => {
-        carrito && carrito.some(product => product.item.id === item.id)
-    }
+    const isInCart = item => carrito && carrito.some(p => p.item.id === item.id)
 
     const removeItem = (item) => {
         if(isInCart(item)){
-            const productoEliminado = carrito.filter(p => p.item.id !== item.id)
-            setCarrito([productoEliminado]) 
+            const productoEliminado = carrito.filter(p => p.item.id !== item.id) || []
+            setCarrito([...productoEliminado]) 
         }
     }
 
@@ -34,12 +34,18 @@ const MiProvider = ({children}) =>{
         setCarrito([])
     }
 
+    const totalCarrito = ()=> {
+        const initialValue = 0
+        return carrito && carrito.reduce((previusValue, currentValue)=> previusValue + currentValue.count, initialValue)
+    }
+
     const valorGeneral  = {
         carrito : carrito,
         addItem : addItem,
         isInCart : isInCart,
         removeItem : removeItem,
-        clear : clear
+        clear : clear,
+        total : total
     }
 
     return (

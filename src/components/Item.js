@@ -5,10 +5,10 @@ const Item = ({producto}) => {
     return (
         <>
         <div className="item">
-            <h4>{producto.producto}</h4>
+            <h4>{producto.product}</h4>
             <img src={producto.src} alt="" />
             <p>${producto.precio}</p>
-            <p>{producto.categoria}</p>
+            <p>Categoria: {producto.categoria}</p>
             <button>
             <Link to={`/product/${producto.id}`}>Ver más</Link>
             </button>

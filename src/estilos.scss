@@ -122,3 +122,50 @@ main {
     
 }
 
+// CartContainer.css
+#cartContainer{
+    padding-top: 60px;
+    .seguirComprando{
+        border: 1px solid black;
+        border-radius: 10px;
+        margin: 0px 300px;
+    }
+    a{
+        text-decoration: none;  
+        text-align: center;
+        text-transform: uppercase;
+        color: black;
+        font-size: 25px;
+        }
+    // Cart.css
+    #Cart {
+        border: 1px solid black;
+        border-radius: 20px;
+        margin: 40px 30px;
+        .cardProduct {
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-gap: 10px;
+            text-align: center;
+            p{
+                padding-top: 10px;
+            }
+            .btnQuitar{
+                padding-top: 15px;
+                button {
+                    width: 50px;
+                    height: 25px;
+                    border: 1px solid black;
+                    border-radius: 10px;
+                }
+            }
+            img{
+                margin-left: 20px;
+                
+            }
+            
+        }
+        }
+    }
+
+

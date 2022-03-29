@@ -1,5 +1,5 @@
 import {NavLink } from "react-router-dom";
-import { FaShoppingBasket } from 'react-icons/fa';
+import CartWidget from "./CartWidget";
 
 
 function NavBar() {
@@ -14,7 +14,7 @@ function NavBar() {
                 <NavLink to="/products/Nena">NENA</NavLink>
             </div>
             <div id='shop-basket'>
-                <NavLink to="/carrito"> <FaShoppingBasket/> </NavLink>
+                <CartWidget/>
             </div>
         </header>
         )

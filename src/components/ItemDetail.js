@@ -28,7 +28,7 @@ const ItemDetail = (item) => {
                     <p>{categoria}</p>
                     <p>{genero}</p>
                     <p>Stock: {stock}</p>
-                    {counter ? <button> <Link to={`/carrito`}>Ir a carrito</Link> </button> 
+                    {counter ? <button> <Link to={`/carrito`}>Terminar compra</Link> </button> 
                     : <ItemCount stock={stock} inicial={1} onAdd={onAdd}/>}
                 </div>
             </div>

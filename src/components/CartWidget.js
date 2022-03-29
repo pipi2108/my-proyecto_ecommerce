@@ -1,16 +1,20 @@
-import { useContext } from "react"
-import {Context} from './CartContext'
+import React, {useContext} from 'react'
+import { FaShoppingBasket } from 'react-icons/fa';
+import {NavLink } from "react-router-dom";
+import {Context} from './CartContext';
 
-function Carrito() {
-    const resultado = useContext(Context)
-    const carrito = resultado.carrito
-    console.log(carrito)
-    
-    return(
-        <div>   
-            <p>MI CARRITO</p>    
-        </div>
-    )
+const CartWidget = () => {
+  const {total} = useContext(Context)
+  
+  return (
+    total !== 0 && (
+      <div>
+        <NavLink to="/carrito"> <FaShoppingBasket/></NavLink>
+        <p>{total}</p>
+      </div>
+        )    
+        
+  )
 }
 
-export default Carrito
+export default CartWidget

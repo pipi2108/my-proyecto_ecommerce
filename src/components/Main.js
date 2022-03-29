@@ -1,7 +1,7 @@
 import ItemListContainer from "./ItemListContainer"
 import { Route, Routes } from "react-router-dom";
 import ItemDetailContainer from "./ItemDetailContainer";
-import Carrito from "./CartWidget"
+import Carrito from "./CartContainer"
 
 function Main() {
     return (
