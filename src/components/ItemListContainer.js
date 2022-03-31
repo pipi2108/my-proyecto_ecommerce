@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { db } from "./Firabase"
 import ItemList from "./ItemList"
+import { getDocs, collection , query , where } from "firebase/firestore"
 
 
 const ItemListContainer = (props) =>{
@@ -9,25 +11,28 @@ const ItemListContainer = (props) =>{
     const {id} = useParams()
     
     useEffect(()=>{
-        const pedido = fetch("https://www.mockachino.com/d75ae74f-ab5f-4b/products")
-        
-        pedido
-            .then((respuestaDeLaApi) => {
-                return respuestaDeLaApi.json()
+        if(!id){
+            const productosColletion = collection(db, "products")
+            const products = getDocs(productosColletion)
+            
+            products
+            .then(respuesta=> setProductos(respuesta.docs.map(doc=>doc.data())))
+            .catch((error)=>{
+                console.log("error al cargar")
             })
-            .then((datos)=>{
-                if(id){
-                    setProductos(datos.products.filter(p => p.genero === id) )
-                }else{
-                    setProductos(datos.products)
-                }
+            .finally(()=>setLoading(false))
+        }else{
+            const productosColletion = collection(db, "products")
+            const filtrado = query(productosColletion, where("genero","==", id))
+            const products = getDocs(filtrado)
+            products
+            .then(respuesta=> setProductos(respuesta.docs.map(doc=>doc.data())))
+            .catch((error)=>{
+                console.log("error al cargar")
             })
-            .catch((errorDeMiApi)=>{
-                console.log("ERROR AL QUERER CARGAR PRODUCTOS")
-            })
-            .finally(()=>{
-                setLoading(false)
-        })   
+            .finally(()=>setLoading(false))
+        }
+          
     }, [id])
 
     return (

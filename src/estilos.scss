@@ -125,6 +125,9 @@ main {
 // CartContainer.css
 #cartContainer{
     padding-top: 60px;
+    .containerLimpiar{
+        text-align: center;
+    }
     .seguirComprando{
         border: 1px solid black;
         border-radius: 10px;

@@ -5,7 +5,7 @@ import {Context} from './CartContext'
 
 
 const ItemDetail = (item) => {
-    const {id, product, marca, genero, src, stock, precio, categoria} = item
+    const {id, producto, marca, genero, imagen, stock, precio, categoria} = item
     const [counter, setCounter] = useState(null);
     const {addItem} = useContext(Context)
     
@@ -18,10 +18,10 @@ const ItemDetail = (item) => {
     
         <div className="detallesProductos">
             <div className="productosDetalles">
-                <img src={src} alt="" />
+                <img src={imagen} alt="" />
                 <div className="descripcionProducto">
                     <h3> 
-                    {product} : {id}
+                    {producto} : {id}
                     </h3>
                     <p>Precio: ${precio}</p>
                     <p>Marca: {marca}</p>

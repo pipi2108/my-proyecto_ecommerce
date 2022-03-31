@@ -5,8 +5,8 @@ const Item = ({producto}) => {
     return (
         <>
         <div className="item">
-            <h4>{producto.product}</h4>
-            <img src={producto.src} alt="" />
+            <h4>{producto.producto}</h4>
+            <img src={producto.imagen} alt="" />
             <p>${producto.precio}</p>
             <p>Categoria: {producto.categoria}</p>
             <button>
