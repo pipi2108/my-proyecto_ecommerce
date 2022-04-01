@@ -2,6 +2,7 @@ import { useContext } from "react";
 import {Context} from './CartContext';
 import {NavLink } from "react-router-dom";
 import Cart from "./Cart";
+import CartCheckout from "./CartCheckout";
 
 
 const Carrito = () => {
