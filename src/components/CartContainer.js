@@ -6,7 +6,7 @@ import CartCheckout from "./CartCheckout";
 
 
 const Carrito = () => {
-    const {carrito, clear, precioTotal} = useContext(Context)
+    const {carrito} = useContext(Context)
     
       
     return(
@@ -20,8 +20,7 @@ const Carrito = () => {
                         ))}
                         </div>
                         <div className="containerLimpiar">
-                            <button onClick={()=> clear()}>Limpiar carrito</button>
-                            <p>Precio total: ${precioTotal}</p>
+                            <CartCheckout carrito={carrito}/>
                         </div>
                     </div>)
                 }
