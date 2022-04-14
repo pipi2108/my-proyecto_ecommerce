@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { db } from "./Firabase"
 import ItemList from "./ItemList"
 import { getDocs, collection , query , where } from "firebase/firestore"
+import Box from '@mui/material/Box';
 
 
 const ItemListContainer = (props) =>{
@@ -37,11 +38,9 @@ const ItemListContainer = (props) =>{
 
     return (
         <>
-            <div id="sec-principal">
-                <h2>Bienvenido a {props.nombre}!</h2>
-                <p>{props.nombre}, se creo en {props.año} y es una tienda de ropa para niños/as 
-                donde nuestra principal marca es Pandy y CO. </p>
-            </div>
+            <Box>
+                <img src="assets/local-frente.jpeg" alt="frente-del-local" height= "100vh"/>
+            </Box>
             <div>
                 <div>
                     <p>{loading ? "Cargando..." : "los productos se cargaron correctamente"}</p>

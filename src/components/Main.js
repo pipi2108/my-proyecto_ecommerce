@@ -9,7 +9,7 @@ function Main() {
             <Routes>
                 <Route path="/" element={<ItemListContainer nombre="Caprichitos" año="2018" />}/>
                 <Route path="/products" element={<ItemListContainer nombre="Caprichitos" año="2018" />}/>
-                <Route path="/products/:id" element={<ItemListContainer nombre="Caprichitos" año="2018" />}/>
+                <Route path="/:id" element={<ItemListContainer nombre="Caprichitos" año="2018" />}/>
                 <Route path="/product/:id" element={<ItemDetailContainer/>}/>
                 <Route path="/carrito" element={<Carrito/>}/>
             </Routes>
@@ -18,8 +18,4 @@ function Main() {
         
     }
     
-    export default Main
-    
-    // <>
-    // 
-    // </>
+export default Main

@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
-import { FaShoppingBasket } from 'react-icons/fa';
-import {NavLink } from "react-router-dom";
+import Badge from '@mui/material/Badge';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {Context} from './CartContext';
 
 const CartWidget = () => {
@@ -8,12 +8,10 @@ const CartWidget = () => {
   
   return (
     total !== 0 && (
-      <div>
-        <NavLink to="/carrito"> <FaShoppingBasket/></NavLink>
-        <p>{total}</p>
-      </div>
-        )    
-        
+      <Badge badgeContent={total} color="primary">
+        <ShoppingCartIcon />
+      </Badge>
+      )        
   )
 }
 
