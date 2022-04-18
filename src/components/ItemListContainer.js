@@ -1,53 +1,72 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { db } from "./Firabase"
 import ItemList from "./ItemList"
-import { getDocs, collection , query , where } from "firebase/firestore"
-import Box from '@mui/material/Box';
+import { getDocs, collection, query, where } from "firebase/firestore"
+import { Box, Breadcrumbs, Typography } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 
-const ItemListContainer = (props) =>{
+const ItemListContainer = (props) => {
     const [loading, setLoading] = useState(true)
     const [productos, setProductos] = useState([])
-    const {id} = useParams()
-    
-    useEffect(()=>{
-        if(!id){
+    const { id } = useParams()
+
+    useEffect(() => {
+        if (!id) {
             const productosColletion = collection(db, "products")
             const products = getDocs(productosColletion)
-            
+
             products
-            .then(respuesta=> setProductos(respuesta.docs.map(doc=>doc.data())))
-            .catch((error)=>{
-                console.log("error al cargar")
-            })
-            .finally(()=>setLoading(false))
-        }else{
+                .then(respuesta => setProductos(respuesta.docs.map(doc => doc.data())))
+                .catch((error) => {
+                    console.log("error al cargar")
+                })
+                .finally(() => setLoading(false))
+        } else {
             const productosColletion = collection(db, "products")
-            const filtrado = query(productosColletion, where("genero","==", id))
+            const filtrado = query(productosColletion, where("genero", "==", id))
             const products = getDocs(filtrado)
             products
-            .then(respuesta=> setProductos(respuesta.docs.map(doc=>doc.data())))
-            .catch((error)=>{
-                console.log("error al cargar")
-            })
-            .finally(()=>setLoading(false))
+                .then(respuesta => setProductos(respuesta.docs.map(doc => doc.data())))
+                .catch((error) => {
+                    console.log("error al cargar")
+                })
+                .finally(() => setLoading(false))
         }
-          
+
     }, [id])
 
     return (
         <>
             <Box>
-                <img src="assets/local-frente.jpeg" alt="frente-del-local" height= "100vh"/>
+                <Carousel showThumbs={false}>
+                    <div>
+                        <img src="assets/local-frente.jpeg" />
+                    </div>
+                    <div>
+                        <img src="assets/local-frente.jpeg" />
+                    </div>
+                    <div>
+                        <img src="assets/local-frente.jpeg" />
+                    </div>
+                </Carousel>
             </Box>
-            <div>
-                <div>
-                    <p>{loading ? "Cargando..." : "los productos se cargaron correctamente"}</p>
-                    <ItemList items={productos}/>
-                </div>
-            </div>
-        </>    
+            <Box sx={{paddingLeft:"10px"}}>
+                <Breadcrumbs className="breadcrumb" separator="›" aria-label="breadcrumb">
+                    {id && <Link underline="hover" color="inherit" to="/">
+                        Productos
+                    </Link>}
+                    <Typography color="text.primary">{id ? id : "Productos"}</Typography>
+                </Breadcrumbs>
+            </Box>
+            <Box>
+                {loading ? <CircularProgress /> : <ItemList items={productos} />}
+            </Box>
+
+        </>
     )
 }
 
