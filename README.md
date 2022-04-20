@@ -1,10 +1,10 @@
 <p align="center" width="200">
-   <img align="center" width="100" src="/assets/logo-caprichitos.png" />   
+   <img align="center" width="100" src="https://i.ibb.co/HDZ8jJ4/logo-caprichitos.png" />   
 </p>
 
 # Caprichitos
 
-### **[VER DEMO]**
+### **[VER DEMO](https://youtu.be/-be_KRtph1o)**
 
 ## Proyecto Final CoderHouse - React js
 
