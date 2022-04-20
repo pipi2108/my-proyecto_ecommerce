@@ -44,13 +44,10 @@ const ItemListContainer = (props) => {
             <Box>
                 <Carousel showThumbs={false}>
                     <div>
-                        <img src="assets/local-frente.jpeg" />
+                        <img src="assets/local-frente.jpeg" alt="local-frente"/>
                     </div>
                     <div>
-                        <img src="assets/local-frente.jpeg" />
-                    </div>
-                    <div>
-                        <img src="assets/local-frente.jpeg" />
+                        <img src="assets/local-adentro.jpeg" alt="local-adentro" />
                     </div>
                 </Carousel>
             </Box>
