@@ -7,6 +7,7 @@ import {
   Grid,
   Divider,
   Button,
+  Breadcrumbs
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
@@ -24,10 +25,20 @@ const ItemDetail = (item) => {
   };
   return (
     <>
-      <Box>
+      <Box className="btnVolver">
         <Button onClick={() => { window.history.go(-1) }}>
-          <ArrowCircleLeftOutlinedIcon/> VOLVER
+          <ArrowCircleLeftOutlinedIcon sx={{color: "#9f6cb8"}}/> VOLVER
         </Button>
+      </Box>
+      <Box sx={{ paddingLeft: "10px" }}>
+        <Breadcrumbs className="breadcrumb" separator="›" aria-label="breadcrumb">
+          <Typography variant="h6">
+            <Link underline="hover" color="inherit" to="/">
+              Productos
+            </Link>
+          </Typography>
+          <Typography variant="h6" color="text.primary">{producto}</Typography>
+        </Breadcrumbs>
       </Box>
       <Card className="detalle" sx={{ my: 3, mx: 2 }}>
         <Grid container alignItems="center">
@@ -46,13 +57,13 @@ const ItemDetail = (item) => {
               <Box sx={{ my: 3, mx: 2 }}>
                 <Grid container alignItems="center">
                   <Grid item xs>
-                    <Typography gutterBottom variant="h4" component="div">
+                    <Typography gutterBottom variant="h4">
                       {producto}
                     </Typography>
                   </Grid>
                   <Grid item>
-                    <Typography gutterBottom variant="h6" component="div">
-                      Genero: {genero}
+                    <Typography gutterBottom variant="h6">
+                      {genero}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -61,7 +72,7 @@ const ItemDetail = (item) => {
                 </Typography>
               </Box>
               <Divider variant="middle" />
-              <Box sx={{ m: 2 }}>
+              <Box sx={{ my: 3, mx: 2 }}>
                 <Grid container alignItems="center">
                   <Grid item xs>
                     <Typography color="text.secondary" variant="body2">

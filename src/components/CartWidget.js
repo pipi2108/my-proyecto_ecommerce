@@ -9,7 +9,7 @@ const CartWidget = () => {
   return (
     total !== 0 && (
       <Badge badgeContent={total} color="primary">
-        <ShoppingCartIcon />
+        <ShoppingCartIcon sx={{color:"black"}}/>
       </Badge>
       )        
   )

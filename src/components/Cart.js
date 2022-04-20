@@ -11,8 +11,8 @@ const Cart = (product) => {
   return (
     <>
       <Box sx={{ my: 3, mx: 2 }}>
-        <Card sx={{ my: 3, mx: 2 }}>
-          <Box>
+        <Card className="cardCarrito"  sx={{ my: 3, mx: 2, padding:"10px" }}>
+          <Box >
             <Grid container alignItems="center" justifyContent="space-around">
               <Grid item>
                 <Box sx={{ width: 100, backgroundColor: "white" }} />
@@ -78,7 +78,7 @@ const Cart = (product) => {
               </Grid>
               <Grid item>
                 <Typography
-                  sx={{ width: 100, textAlign: "center"  }}
+                  sx={{ width: 100, textAlign: "center" }}
                   color="text.secondary"
                   variant="body2"
                 >
@@ -87,7 +87,7 @@ const Cart = (product) => {
               </Grid>
               <Grid item>
                 <Typography
-                  sx={{ width: 100, textAlign: "center"  }}
+                  sx={{ width: 100, textAlign: "center" }}
                   color="text.secondary"
                   variant="body2"
                 >
@@ -96,7 +96,7 @@ const Cart = (product) => {
               </Grid>
               <Grid item>
                 <Typography
-                  sx={{ width: 100, textAlign: "center"  }}
+                  sx={{ width: 100, textAlign: "center" }}
                   color="text.secondary"
                   variant="body2"
                 >
@@ -105,7 +105,7 @@ const Cart = (product) => {
               </Grid>
               <Grid item>
                 <Typography
-                  sx={{ width: 100, textAlign: "center"  }}
+                  sx={{ width: 100, textAlign: "center" }}
                   color="text.secondary"
                   variant="body2"
                 >
@@ -114,9 +114,9 @@ const Cart = (product) => {
               </Grid>
               <Grid item>
                 <Box sx={{ width: 100 }}>
-                    <Button onClick={() => removeItem(item)}>
-                        <DeleteOutlineIcon/>
-                    </Button>
+                  <Button onClick={() => removeItem(item)}>
+                    <DeleteOutlineIcon sx={{color:"black"}}/>
+                  </Button>
                 </Box>
               </Grid>
             </Grid>

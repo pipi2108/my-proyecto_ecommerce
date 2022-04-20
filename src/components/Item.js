@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import * as React from 'react';
-import {Card, CardContent, CardMedia, CardActionArea, Typography, Box } from '@mui/material';
+import {Card, CardContent, CardMedia, CardActionArea, Typography, Box, Divider } from '@mui/material';
 
 
 const Item = ({producto}) => {
@@ -16,13 +16,14 @@ const Item = ({producto}) => {
                         alt="imagen productos"
                     />
                     <CardContent >
-                        <Box sx={{height: 100}}>
-                            <Typography gutterBottom variant="h5" component="div">
+                        <Box sx={{height: 80}}>
+                            <Typography gutterBottom variant="h5">
                                 {producto.producto}
                             </Typography>
                         </Box>
+                        <Divider variant="middle" />
                         <Box sx={{height: 50}}>
-                            <Typography variant="body2" color="text.secondary">
+                            <Typography variant="h6" color="text.secondary">
                                 PRECIO: ${producto.precio}
                             </Typography>
                         </Box>

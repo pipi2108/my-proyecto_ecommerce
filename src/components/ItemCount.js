@@ -27,7 +27,7 @@ const ItemCount = ({ stock, inicial, onAdd }) => {
           <Grid item>
             <Box>
               <Button onClick={restar} disabled={contador === 1}>
-                <ArrowDropDownIcon />
+                <ArrowDropDownIcon sx={{color: "#9f6cb8"}}/>
               </Button>
             </Box>
           </Grid>
@@ -39,7 +39,7 @@ const ItemCount = ({ stock, inicial, onAdd }) => {
           <Grid item>
             <Box>
               <Button onClick={sumar} disabled={contador === stock}>
-                <ArrowDropUpIcon />
+                <ArrowDropUpIcon sx={{color: "#9f6cb8"}}/>
               </Button>
             </Box>
           </Grid>
